@@ -25,6 +25,6 @@ public class Author {
     @Column(name = "age")
     private int age;
 
-    @OneToOne(mappedBy = "authors", cascade = CascadeType.ALL)
+    @OneToOne(mappedBy = "author", cascade = CascadeType.ALL)
     private Book book;
 }
