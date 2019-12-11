@@ -1,6 +1,10 @@
 package com.patryk.booksrental.Models;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -27,8 +31,10 @@ public class Author {
     private int age;
 
 
-    @OneToMany(mappedBy = "author")
+    @OneToMany(mappedBy = "author_id")
+    @JsonIgnore
     private Set<Book> books;
+
 //    @OneToOne(mappedBy = "author", cascade = CascadeType.ALL)
 //    private Book book;
 }

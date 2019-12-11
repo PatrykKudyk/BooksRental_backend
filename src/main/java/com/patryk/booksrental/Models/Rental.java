@@ -19,8 +19,8 @@ public class Rental {
     @Column(name = "id")
     @Id
     private long id;
-    @OneToMany(mappedBy = "rental")
-    private Set<Book> books;
+//    @OneToMany(mappedBy = "rental")
+//    private Set<Book> books;
     @OneToOne
     @MapsId
     private Location location;

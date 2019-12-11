@@ -1,6 +1,9 @@
 package com.patryk.booksrental.Models;
 
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -34,19 +37,20 @@ public class Book {
     private boolean is_thick_cover;
 
 
-    @OneToOne
-    @MapsId("publishing_house_id")
-    private PublishingHouse publishing_house;
+//    @OneToOne
+//    @MapsId("publishing_house_id")
+//    private PublishingHouse publishing_house;
 
     @Column(name = "is_loan")
     private boolean is_loan;
 
-    @ManyToOne
-    @JoinColumn(name = "rental_id", nullable = false)
-    private Rental rental;
+//    @ManyToOne
+//    @JoinColumn(name = "rental_id", nullable = false)
+//    private Rental rental;
 
     @ManyToOne
     @JoinColumn(name = "author_id", nullable = false)
-    private Author author;
+    @JsonIgnore
+    private Author author_id;
 
 }

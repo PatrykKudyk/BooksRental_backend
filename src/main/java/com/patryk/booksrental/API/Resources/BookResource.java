@@ -3,6 +3,7 @@ package com.patryk.booksrental.API.Resources;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.patryk.booksrental.Models.Author;
+import com.patryk.booksrental.Models.PublishingHouse;
 import com.patryk.booksrental.Models.Rental;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -24,6 +25,8 @@ public class BookResource {
     private boolean is_thick_cover;
     @JsonProperty
     private boolean is_loan;
+    @JsonProperty
+    private PublishingHouse publishing_house;
     @JsonProperty
     private Rental rental;
     @JsonProperty

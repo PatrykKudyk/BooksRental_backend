@@ -24,6 +24,6 @@ public class PublishingHouse {
     @MapsId
     private Location location;
 
-    @OneToOne(mappedBy = "publishing_house", cascade = CascadeType.ALL)
-    private Book book;
+//    @OneToOne(mappedBy = "publishing_house", cascade = CascadeType.ALL)
+//    private Book book;
 }
