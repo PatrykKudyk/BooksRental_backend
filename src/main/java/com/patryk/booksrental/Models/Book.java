@@ -13,7 +13,7 @@ import javax.persistence.*;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name = "books")
+@Table(name = "book")
 public class Book {
     @Column(name = "id")
     @Id
@@ -21,28 +21,32 @@ public class Book {
     @Column(name = "title")
     private String title;
 
-    @OneToOne
-    @MapsId("authorId")
-    private Author author;
+//    @OneToOne
+//    @MapsId("author_id")
+//    private Author author;
 
 
-    @Column(name = "releaseYear")
-    private int releaseYear;
+    @Column(name = "release_year")
+    private int release_year;
     @Column(name = "pages")
     private int pages;
-    @Column(name = "isThickCover")
-    private boolean isThickCover;
+    @Column(name = "is_thick_cover")
+    private boolean is_thick_cover;
 
 
     @OneToOne
-    @MapsId("publishingHouseId")
-    private PublishingHouse publishingHouse;
+    @MapsId("publishing_house_id")
+    private PublishingHouse publishing_house;
 
-    @Column(name = "isLoan")
-    private boolean isLoan;
+    @Column(name = "is_loan")
+    private boolean is_loan;
 
     @ManyToOne
-    @JoinColumn(name = "rentalId", nullable = false)
+    @JoinColumn(name = "rental_id", nullable = false)
     private Rental rental;
+
+    @ManyToOne
+    @JoinColumn(name = "author_id", nullable = false)
+    private Author author;
 
 }

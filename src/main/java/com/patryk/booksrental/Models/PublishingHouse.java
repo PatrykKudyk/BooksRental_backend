@@ -13,7 +13,7 @@ import javax.persistence.*;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name = "publishingHouses")
+@Table(name = "publishing_house")
 public class PublishingHouse {
     @Column(name = "id")
     @Id
@@ -24,6 +24,6 @@ public class PublishingHouse {
     @MapsId
     private Location location;
 
-    @OneToOne(mappedBy = "publishingHouse", cascade = CascadeType.ALL)
+    @OneToOne(mappedBy = "publishing_house", cascade = CascadeType.ALL)
     private Book book;
 }

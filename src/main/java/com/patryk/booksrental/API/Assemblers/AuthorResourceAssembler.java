@@ -17,10 +17,21 @@ public class AuthorResourceAssembler {
                     .name(author.getName())
                     .lastName(author.getLastName())
                     .age(author.getAge())
-                    .book(author.getBook())
+//                    .book(author.getBooks())
                     .build();
             return authorResource;
         }).collect(Collectors.toList());
         return authorResources;
+    }
+
+    public AuthorResource buildResource(Author author){
+        AuthorResource authorResource = AuthorResource.builder()
+                .id(author.getId())
+                .name(author.getName())
+                .lastName(author.getLastName())
+                .age(author.getAge())
+//                .book(author.getBooks())
+                .build();
+        return authorResource;
     }
 }

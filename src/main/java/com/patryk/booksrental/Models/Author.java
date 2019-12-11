@@ -7,24 +7,28 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.Set;
 
 @Data
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name = "authors")
+@Table(name = "author")
 public class Author {
     @Column(name = "id")
     @Id
     private long id;
     @Column(name = "name")
     private String name;
-    @Column(name = "lastName")
+    @Column(name = "last_name")
     private String lastName;
     @Column(name = "age")
     private int age;
 
-    @OneToOne(mappedBy = "author", cascade = CascadeType.ALL)
-    private Book book;
+
+    @OneToMany(mappedBy = "author")
+    private Set<Book> books;
+//    @OneToOne(mappedBy = "author", cascade = CascadeType.ALL)
+//    private Book book;
 }

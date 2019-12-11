@@ -13,7 +13,7 @@ import javax.persistence.*;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name = "locations")
+@Table(name = "location")
 public class Location {
     @Column(name = "id")
     @Id
@@ -22,16 +22,16 @@ public class Location {
     private String state;
     @Column(name = "city")
     private String city;
-    @Column(name = "zipCode")
-    private String zipCode;
+    @Column(name = "zip_code")
+    private String zip_code;
     @Column(name = "street")
     private String street;
-    @Column(name = "buildingNumber")
-    private int buildingNumber;
-    @Column(name = "officeNumber")
-    private String officeNumber;
+    @Column(name = "building_number")
+    private int building_number;
+    @Column(name = "office_number")
+    private String office_number;
     @OneToOne(mappedBy = "location", cascade = CascadeType.ALL)
-    private PublishingHouse publishingHouse;
+    private PublishingHouse publishing_house;
     @OneToOne(mappedBy = "location", cascade = CascadeType.ALL)
     private Rental rental;
 }
