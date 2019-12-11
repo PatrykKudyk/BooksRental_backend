@@ -27,9 +27,11 @@ public class BookController {
 
     @RequestMapping(value = "/{someID}", produces = "application/json", method = RequestMethod.GET)
     public List<BookResource> getBooksOfAuthor(@PathVariable (value = "someID") long id){
-        List<Book> bookList = bookService.getBookListOfAuthor(id);
-        return bookResourceAssembler.buildResources(bookList);
+        List<Book> bookList = bookService.getList();
+        return bookResourceAssembler.buildResourcesOfAuthor(bookResourceAssembler.buildResources(bookList), id);
+//        return bookResourceAssembler.buildResources(bookList);
     }
+
 
     @Autowired
     public void setBookService(BookService bookService){this.bookService = bookService;}

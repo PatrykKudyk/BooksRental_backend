@@ -4,6 +4,7 @@ package com.patryk.booksrental.Models;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -48,6 +49,7 @@ public class Book {
 //    @JoinColumn(name = "rental_id", nullable = false)
 //    private Rental rental;
 
+    @JsonIgnoreProperties
     @ManyToOne
     @JoinColumn(name = "author_id", nullable = false)
     @JsonIgnore

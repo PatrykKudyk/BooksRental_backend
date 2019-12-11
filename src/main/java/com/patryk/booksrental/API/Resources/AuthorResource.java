@@ -7,6 +7,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 
+import java.util.List;
 import java.util.Set;
 
 @Data
@@ -23,5 +24,5 @@ public class AuthorResource {
     private int age;
     @JsonProperty
 //    @JsonIgnore
-    private Set<Book> books;
+    private List<Book> books;
 }

@@ -20,7 +20,7 @@ public class BookDaoImpl implements BookDao {
 
     @Override
     public List<Book> getListOfAuthor(long authorId) {
-        return entityManager.createQuery("select b from Book b where b.author_id = :authorId", Book.class)
+        return entityManager.createQuery("select b from Book b where b.author= :authorId", Book.class)
                 .setParameter("authorId", authorId).getResultList();
     }
 }

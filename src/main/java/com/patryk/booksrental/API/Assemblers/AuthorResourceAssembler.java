@@ -30,7 +30,7 @@ public class AuthorResourceAssembler {
                 .name(author.getName())
                 .lastName(author.getLastName())
                 .age(author.getAge())
-//                .books(author.getBooks())
+                .books(author.getBooks())
                 .build();
         return authorResource;
     }

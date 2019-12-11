@@ -11,6 +11,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.List;
 import java.util.Set;
 
 @Data
@@ -31,9 +32,9 @@ public class Author {
     private int age;
 
 
-    @OneToMany(mappedBy = "author_id")
     @JsonIgnore
-    private Set<Book> books;
+    @OneToMany(mappedBy = "author_id")
+    private List<Book> books;
 
 //    @OneToOne(mappedBy = "author", cascade = CascadeType.ALL)
 //    private Book book;
