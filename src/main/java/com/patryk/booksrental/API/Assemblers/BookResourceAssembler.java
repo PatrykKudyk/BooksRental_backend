@@ -27,13 +27,4 @@ public class BookResourceAssembler {
         return bookResources;
     }
 
-    public List<BookResource> buildResourcesOfAuthor(List<BookResource> list, long authorId){
-        List<BookResource> bookResources = null;
-        for(int i = 0; i < list.size(); i++){
-            if(list.get(i).getAuthor().getId() == authorId){
-               bookResources.add(list.get(i));
-            }
-        }
-        return bookResources;
-    }
 }
