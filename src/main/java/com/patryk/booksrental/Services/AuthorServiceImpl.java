@@ -5,6 +5,8 @@ import com.patryk.booksrental.Models.Author;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class AuthorServiceImpl implements AuthorService {
 
@@ -13,6 +15,11 @@ public class AuthorServiceImpl implements AuthorService {
     @Override
     public Author getAuthorById(long id) {
         return authorDao.getAuthorById(id);
+    }
+
+    @Override
+    public List<Author> getAuthorList() {
+        return authorDao.getList();
     }
 
     @Autowired
