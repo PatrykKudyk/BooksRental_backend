@@ -26,8 +26,8 @@ public class Book {
     private String title;
 
 //    @OneToOne
-//    @MapsId("author_id")
-//    private Author author;
+//    @MapsId("rental_id")
+//    private Rental rental_id;
 
 
     @Column(name = "release_year")
@@ -38,16 +38,18 @@ public class Book {
     private boolean is_thick_cover;
 
 
-//    @OneToOne
-//    @MapsId("publishing_house_id")
-//    private PublishingHouse publishing_house;
+    @JsonIgnoreProperties
+    @ManyToOne
+    @JoinColumn(name = "publishing_house_id", nullable = false)
+    @JsonIgnore
+    private PublishingHouse publishing_house_id;
 
     @Column(name = "is_loan")
     private boolean is_loan;
 
-//    @ManyToOne
-//    @JoinColumn(name = "rental_id", nullable = false)
-//    private Rental rental;
+    @ManyToOne
+    @JoinColumn(name = "rental_id", nullable = false)
+    private Rental rental;
 
     @JsonIgnoreProperties
     @ManyToOne

@@ -1,6 +1,7 @@
 package com.patryk.booksrental.Models;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -30,8 +31,18 @@ public class Location {
     private int building_number;
     @Column(name = "office_number")
     private String office_number;
-    @OneToOne(mappedBy = "location", cascade = CascadeType.ALL)
+
+
+    @OneToOne(mappedBy = "location_id", cascade = CascadeType.ALL,
+            fetch = FetchType.LAZY, optional = false)
+    @JsonIgnore
     private PublishingHouse publishing_house;
-    @OneToOne(mappedBy = "location", cascade = CascadeType.ALL)
+
+
+    @OneToOne(mappedBy = "location_id", cascade = CascadeType.ALL,
+            fetch = FetchType.LAZY, optional = false)
+    @JsonIgnore
     private Rental rental;
+
+
 }

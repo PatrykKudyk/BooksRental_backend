@@ -1,12 +1,14 @@
 package com.patryk.booksrental.Models;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Data
 @Builder
@@ -20,10 +22,15 @@ public class PublishingHouse {
     private long id;
     @Column(name = "name")
     private String name;
-    @OneToOne
-    @MapsId
-    private Location location;
 
-//    @OneToOne(mappedBy = "publishing_house", cascade = CascadeType.ALL)
-//    private Book book;
+
+    @OneToOne
+    @JoinColumn(name = "location_id")
+    private Location location_id;
+
+
+    @JsonIgnore
+    @OneToMany(mappedBy = "publishing_house_id")
+    private List<Book> books;
+
 }
