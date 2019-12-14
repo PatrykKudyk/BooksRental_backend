@@ -23,4 +23,10 @@ public class BookDaoImpl implements BookDao {
         return entityManager.createQuery("select b from Book b where b.author= :authorId", Book.class)
                 .setParameter("authorId", authorId).getResultList();
     }
+
+    @Override
+    public List<Book> getListOfNames(String name) {
+        return entityManager.createQuery("select b from Book b where b.title= :name", Book.class)
+                .setParameter("name", name).getResultList();
+    }
 }

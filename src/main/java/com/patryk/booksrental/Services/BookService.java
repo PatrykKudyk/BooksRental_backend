@@ -7,4 +7,5 @@ import java.util.List;
 public interface BookService {
     List<Book> getList();
 //    List<Book> getBookListOfAuthor(long authorId);
+    List<Book> getListWithNames(String name);
 }

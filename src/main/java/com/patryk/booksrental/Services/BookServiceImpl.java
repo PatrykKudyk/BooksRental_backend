@@ -24,6 +24,12 @@ public class BookServiceImpl implements BookService {
 //        return bookDao.getListOfAuthor(authorId);
 //    }
 
+
+    @Override
+    public List<Book> getListWithNames(String name) {
+        return bookDao.getListOfNames(name);
+    }
+
     @Autowired
     public void setBookDao(BookDao bookDao){this.bookDao = bookDao;}
 }
