@@ -20,6 +20,7 @@ import javax.persistence.*;
 @Table(name = "book")
 public class Book {
     @Column(name = "id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
     private long id;
     @Column(name = "title")
@@ -49,7 +50,7 @@ public class Book {
 
     @ManyToOne
     @JoinColumn(name = "rental_id", nullable = false)
-    private Rental rental;
+    private Rental rental_id;
 
     @JsonIgnoreProperties
     @ManyToOne

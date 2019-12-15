@@ -9,7 +9,6 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.util.List;
-import java.util.Set;
 
 @Data
 @Builder
@@ -23,7 +22,7 @@ public class Rental {
     private long id;
 
     @JsonIgnore
-    @OneToMany(mappedBy = "rental")
+    @OneToMany(mappedBy = "rental_id")
     private List<Book> books;
 
 
@@ -33,4 +32,8 @@ public class Rental {
 
 //    @OneToOne(mappedBy = "rental_id", cascade = CascadeType.ALL)
 //    private Book book;
+
+//    Rental(int id){
+//        this.id = id;
+//    }
 }

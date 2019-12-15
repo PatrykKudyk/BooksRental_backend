@@ -30,6 +30,11 @@ public class BookServiceImpl implements BookService {
         return bookDao.getListOfNames(name);
     }
 
+    @Override
+    public void addBook(Book book) {
+        bookDao.addBook(book);
+    }
+
     @Autowired
     public void setBookDao(BookDao bookDao){this.bookDao = bookDao;}
 }

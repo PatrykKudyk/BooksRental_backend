@@ -8,4 +8,5 @@ public interface BookDao {
     List<Book> getList();
     List<Book> getListOfAuthor(long authorId);
     List<Book> getListOfNames(String name);
+    void addBook(Book book);
 }

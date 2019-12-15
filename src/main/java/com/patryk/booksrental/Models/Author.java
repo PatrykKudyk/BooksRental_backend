@@ -38,4 +38,8 @@ public class Author {
 
 //    @OneToOne(mappedBy = "author", cascade = CascadeType.ALL)
 //    private Book book;
+
+//    Author(int id){
+//        this.id = id;
+//    }
 }

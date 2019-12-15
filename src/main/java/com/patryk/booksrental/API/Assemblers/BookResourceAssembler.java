@@ -19,7 +19,7 @@ public class BookResourceAssembler {
                     .is_thick_cover(book.is_thick_cover())
                     .is_loan(book.is_loan())
                     .publishing_house(book.getPublishing_house_id())
-                    .rental(book.getRental())
+                    .rental(book.getRental_id())
                     .author(book.getAuthor_id())
                     .build();
             return bookResource;
