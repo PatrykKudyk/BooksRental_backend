@@ -6,10 +6,9 @@ import com.patryk.booksrental.API.Resources.AuthorResource;
 import com.patryk.booksrental.Models.Author;
 import com.patryk.booksrental.Services.AuthorService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -29,6 +28,12 @@ public class AuthorController {
     public List<AuthorResource> getAuthors(){
         List<Author> authorList = authorService.getAuthorList();
         return authorResourceAssembler.buildResources(authorList);
+    }
+
+    @RequestMapping(value = "/add", method = RequestMethod.POST)
+    public ResponseEntity<String> addAuthor(@RequestBody(required = true) Author author){
+        authorService.addAuthor(author);
+        return new ResponseEntity<>("Dodano", HttpStatus.OK);
     }
 
     @Autowired

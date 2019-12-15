@@ -22,6 +22,11 @@ public class AuthorServiceImpl implements AuthorService {
         return authorDao.getList();
     }
 
+    @Override
+    public void addAuthor(Author author) {
+        authorDao.addAuthor(author);
+    }
+
     @Autowired
     public void setAuthorDao(AuthorDao authorDao){this.authorDao = authorDao;}
 }
