@@ -6,11 +6,10 @@ import com.patryk.booksrental.Models.PublishingHouse;
 import com.patryk.booksrental.Models.Rental;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
-import lombok.NoArgsConstructor;
+import lombok.Data;
 
-import javax.persistence.Entity;
 
-@Entity
+@Data
 @Builder
 @AllArgsConstructor
 public class LocationResource {
