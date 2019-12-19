@@ -28,7 +28,7 @@ public class Location {
     @Column(name = "street")
     private String street;
     @Column(name = "building_number")
-    private int building_number;
+    private String building_number;
     @Column(name = "office_number")
     private String office_number;
     @Column(name = "is_used")

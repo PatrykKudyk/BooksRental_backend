@@ -4,7 +4,7 @@ create table location(
     city varchar(255) not null,
     zip_code varchar(255) not null,
     street varchar(255) not null,
-    building_number int not null,
+    building_number varchar(255) not null,
     office_number varchar(255) not null,
     is_used bool not null,
     primary key(id)
