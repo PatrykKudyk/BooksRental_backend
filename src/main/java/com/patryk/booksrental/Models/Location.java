@@ -31,6 +31,8 @@ public class Location {
     private int building_number;
     @Column(name = "office_number")
     private String office_number;
+    @Column(name = "is_used")
+    private boolean is_used;
 
 
     @OneToOne(mappedBy = "location_id", cascade = CascadeType.ALL,
@@ -45,4 +47,7 @@ public class Location {
     private Rental rental;
 
 
+    Location(long id){
+        this.id = id;
+    }
 }

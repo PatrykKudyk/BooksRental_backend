@@ -36,6 +36,11 @@ public class Author {
     @OneToMany(mappedBy = "author_id")
     private List<Book> books;
 
+    Author(long id){
+        this.id = id;
+    }
+
+
 //    @OneToOne(mappedBy = "author", cascade = CascadeType.ALL)
 //    private Book book;
 

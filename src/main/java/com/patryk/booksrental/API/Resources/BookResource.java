@@ -31,5 +31,4 @@ public class BookResource {
     private Rental rental;
     @JsonProperty
     private Author author;
-
 }

@@ -33,7 +33,7 @@ public class Rental {
 //    @OneToOne(mappedBy = "rental_id", cascade = CascadeType.ALL)
 //    private Book book;
 
-//    Rental(int id){
-//        this.id = id;
-//    }
+    Rental(long id){
+        this.id = id;
+    }
 }

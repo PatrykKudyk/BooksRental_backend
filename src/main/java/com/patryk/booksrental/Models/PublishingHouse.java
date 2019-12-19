@@ -33,4 +33,13 @@ public class PublishingHouse {
     @OneToMany(mappedBy = "publishing_house_id")
     private List<Book> books;
 
+    PublishingHouse(long id){
+        this.id = id;
+    }
+
+//    PublishingHouse(String name, long location_id){
+//        this.name = name;
+//        this.location_id.setId(location_id);
+//    }
+
 }

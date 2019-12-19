@@ -6,5 +6,6 @@ create table location(
     street varchar(255) not null,
     building_number int not null,
     office_number varchar(255) not null,
+    is_used bool not null,
     primary key(id)
 )

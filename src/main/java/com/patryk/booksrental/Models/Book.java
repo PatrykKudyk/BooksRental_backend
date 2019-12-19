@@ -1,10 +1,7 @@
 package com.patryk.booksrental.Models;
 
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.fasterxml.jackson.annotation.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -38,13 +35,6 @@ public class Book {
     @Column(name = "is_thick_cover")
     private boolean is_thick_cover;
 
-
-    @JsonIgnoreProperties
-    @ManyToOne
-    @JoinColumn(name = "publishing_house_id", nullable = false)
-    @JsonIgnore
-    private PublishingHouse publishing_house_id;
-
     @Column(name = "is_loan")
     private boolean is_loan;
 
@@ -52,10 +42,28 @@ public class Book {
     @JoinColumn(name = "rental_id", nullable = false)
     private Rental rental_id;
 
+    @JsonIgnore
+    @JsonIgnoreProperties
+    @ManyToOne
+    @JoinColumn(name = "publishing_house_id", nullable = false)
+    private PublishingHouse publishing_house_id;
+
+    @JsonIgnore
     @JsonIgnoreProperties
     @ManyToOne
     @JoinColumn(name = "author_id", nullable = false)
-    @JsonIgnore
     private Author author_id;
+
+//    Book(String title, int release_year, int pages, boolean is_thick_cover, boolean is_loan, long rental_id,
+//         long publishing_house_id, long author_id){
+//        this.title = title;
+//        this.release_year = release_year;
+//        this.pages = pages;
+//        this.is_thick_cover = is_thick_cover;
+//        this.is_loan = is_loan;
+//        this.rental_id = new Rental(rental_id);
+//        this.publishing_house_id = new PublishingHouse(publishing_house_id);
+//        this.author_id = new Author(author_id);
+//    }
 
 }
