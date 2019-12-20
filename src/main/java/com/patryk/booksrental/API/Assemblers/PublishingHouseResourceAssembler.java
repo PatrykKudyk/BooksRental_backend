@@ -9,7 +9,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @Component
-public class PublishingHouseAssembler {
+public class PublishingHouseResourceAssembler {
     public List<PublishingHouseResource> buildResources(List<PublishingHouse> list){
         List<PublishingHouseResource> publishingHouseResources = list.stream().map(publishingHouse -> {
             PublishingHouseResource publishingHouseResource = PublishingHouseResource.builder()

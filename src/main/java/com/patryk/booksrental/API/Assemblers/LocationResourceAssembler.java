@@ -8,7 +8,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @Component
-public class LocationAssembler {
+public class LocationResourceAssembler {
     public List<LocationResource> buildResources(List<Location> list){
         List<LocationResource> locationResourceList = list.stream().map(location -> {
             LocationResource locationResource = LocationResource.builder()

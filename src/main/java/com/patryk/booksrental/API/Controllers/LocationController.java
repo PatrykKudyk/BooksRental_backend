@@ -1,7 +1,7 @@
 package com.patryk.booksrental.API.Controllers;
 
 
-import com.patryk.booksrental.API.Assemblers.LocationAssembler;
+import com.patryk.booksrental.API.Assemblers.LocationResourceAssembler;
 import com.patryk.booksrental.API.Resources.LocationResource;
 import com.patryk.booksrental.Models.Location;
 import com.patryk.booksrental.Services.LocationService;
@@ -15,19 +15,19 @@ import java.util.List;
 @RestController
 @RequestMapping("/location")
 public class LocationController {
-    private LocationAssembler locationAssembler;
+    private LocationResourceAssembler locationResourceAssembler;
     private LocationService locationService;
 
     @RequestMapping(value = "/", produces = "application/json", method = RequestMethod.GET)
     public List<LocationResource> getList(){
         List<Location> locationList = locationService.getList();
-        return locationAssembler.buildResources(locationList);
+        return locationResourceAssembler.buildResources(locationList);
     }
 
     @RequestMapping(value = "/{someID}", produces = "application/json", method = RequestMethod.GET)
     public LocationResource getLocationById(@PathVariable(value = "someID") long id){
         Location location = locationService.getLocationById(id);
-        return locationAssembler.buildResource(location);
+        return locationResourceAssembler.buildResource(location);
     }
 
     @RequestMapping(value = "/updateUsage", method = RequestMethod.PUT)
@@ -39,7 +39,7 @@ public class LocationController {
 
 
     @Autowired
-    public void setLocationAssembler(LocationAssembler locationAssembler){this.locationAssembler = locationAssembler;}
+    public void setLocationResourceAssembler(LocationResourceAssembler locationResourceAssembler){this.locationResourceAssembler = locationResourceAssembler;}
 
     @Autowired
     public void setLocationService(LocationService locationService){this.locationService = locationService;}
