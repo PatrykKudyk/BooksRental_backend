@@ -1,7 +1,10 @@
 package com.patryk.booksrental.API.Assemblers;
 
 import com.patryk.booksrental.API.Resources.BookResource;
+import com.patryk.booksrental.Models.Author;
 import com.patryk.booksrental.Models.Book;
+import com.patryk.booksrental.Models.PublishingHouse;
+import com.patryk.booksrental.Models.Rental;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
@@ -56,4 +59,17 @@ public class BookResourceAssembler {
         return book;
     }
 
+    public Book buildBookToAdd(Book book, long author_id, long publishing_house_id, long rental_id){
+        Book createdBook = Book.builder()
+                .title(book.getTitle())
+                .pages(book.getPages())
+                .release_year(book.getRelease_year())
+                .is_loan(book.is_loan())
+                .is_thick_cover(book.is_thick_cover())
+                .author_id(new Author(author_id))
+                .publishing_house_id(new PublishingHouse(publishing_house_id))
+                .rental_id(new Rental(rental_id))
+                .build();
+        return createdBook;
+    }
 }

@@ -37,8 +37,9 @@ public class BookController {
     }
 
     @RequestMapping(value = "/add", method = RequestMethod.POST)
-    public ResponseEntity<String> addBook(@RequestBody Book book){
-        bookService.addBook(book);
+    public ResponseEntity<String> addBook(@RequestBody Book book, @RequestParam long author_id,
+                                          @RequestParam long publishing_house_id, @RequestParam long rental_id){
+        bookService.addBook(bookResourceAssembler.buildBookToAdd(book, author_id, publishing_house_id, rental_id));
         return new ResponseEntity<>("Dodano", HttpStatus.OK);
     }
 

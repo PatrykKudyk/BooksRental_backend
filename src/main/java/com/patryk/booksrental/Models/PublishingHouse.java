@@ -33,7 +33,7 @@ public class PublishingHouse {
     @OneToMany(mappedBy = "publishing_house_id")
     private List<Book> books;
 
-    PublishingHouse(long id){
+    public PublishingHouse(long id){
         this.id = id;
     }
 

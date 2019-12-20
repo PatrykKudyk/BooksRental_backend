@@ -36,7 +36,7 @@ public class Author {
     @OneToMany(mappedBy = "author_id")
     private List<Book> books;
 
-    Author(long id){
+    public Author(long id){
         this.id = id;
     }
 
