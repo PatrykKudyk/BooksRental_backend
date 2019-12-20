@@ -31,8 +31,18 @@ public class BookServiceImpl implements BookService {
     }
 
     @Override
+    public Book getBookById(long id) {
+        return bookDao.getBookById(id);
+    }
+
+    @Override
     public void addBook(Book book) {
         bookDao.addBook(book);
+    }
+
+    @Override
+    public void updateBookLoan(long id, boolean is_loan) {
+        bookDao.updateBookLoan(id, is_loan);
     }
 
     @Autowired

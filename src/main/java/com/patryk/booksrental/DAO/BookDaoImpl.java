@@ -31,9 +31,22 @@ public class BookDaoImpl implements BookDao {
                 .setParameter("name", name).getResultList();
     }
 
+    @Override
+    public Book getBookById(long id) {
+        return entityManager.createQuery("select b from Book b where b.id= :id", Book.class)
+                .setParameter("id", id).getSingleResult();
+    }
+
     @Transactional
     @Override
     public void addBook(Book book) {
         entityManager.persist(book);
+    }
+
+    @Transactional
+    @Override
+    public void updateBookLoan(long id, boolean is_loan) {
+        Book bookEntity = entityManager.find(Book.class, id);
+        bookEntity.set_loan(is_loan);
     }
 }

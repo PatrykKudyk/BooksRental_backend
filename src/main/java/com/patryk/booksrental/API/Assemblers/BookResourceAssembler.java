@@ -27,6 +27,21 @@ public class BookResourceAssembler {
         return bookResources;
     }
 
+    public BookResource buildResource(Book book){
+        BookResource bookResource = BookResource.builder()
+                .id(book.getId())
+                .title(book.getTitle())
+                .release_year(book.getRelease_year())
+                .pages(book.getPages())
+                .is_thick_cover(book.is_thick_cover())
+                .is_loan(book.is_loan())
+                .publishing_house(book.getPublishing_house_id())
+                .rental(book.getRental_id())
+                .author(book.getAuthor_id())
+                .build();
+        return bookResource;
+    }
+
     public Book buildBook(BookResource bookResource){
         Book book = Book.builder()
                 .title(bookResource.getTitle())

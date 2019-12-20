@@ -30,10 +30,23 @@ public class BookController {
         return bookResourceAssembler.buildResources(bookList);
     }
 
+    @RequestMapping(value = "/{someID}", produces = "application/json", method = RequestMethod.GET)
+    public BookResource getBookById(@PathVariable(value = "someID") long id){
+        Book book = bookService.getBookById(id);
+        return bookResourceAssembler.buildResource(book);
+    }
+
     @RequestMapping(value = "/add", method = RequestMethod.POST)
     public ResponseEntity<String> addBook(@RequestBody Book book){
         bookService.addBook(book);
         return new ResponseEntity<>("Dodano", HttpStatus.OK);
+    }
+
+    @RequestMapping(value = "/updateLoan", method = RequestMethod.PUT)
+    public ResponseEntity<String> updateLoan(@RequestParam(required = true)long id,
+                                             @RequestParam(required = true)boolean is_loan){
+        bookService.updateBookLoan(id, is_loan);
+        return new ResponseEntity<>("Pomyślnie zaktualizowano status wypożyczenia!", HttpStatus.OK);
     }
 
     @Autowired
