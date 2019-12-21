@@ -27,8 +27,8 @@ public class PublishingHouseDaoImpl implements PublishingHouseDao {
 
     @Override
     public List<PublishingHouse> getPublishingHouseByName(String name) {
-        return entityManager.createQuery("select p from PublishingHouse p where p.name= :name", PublishingHouse.class)
-                .setParameter("name", name).getResultList();
+        return entityManager.createQuery("select p from PublishingHouse p where p.name like :name", PublishingHouse.class)
+                .setParameter("name", "%" + name + "%").getResultList();
     }
 
     @Transactional

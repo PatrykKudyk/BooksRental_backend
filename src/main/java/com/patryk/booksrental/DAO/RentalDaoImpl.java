@@ -27,8 +27,8 @@ public class RentalDaoImpl implements RentalDao {
 
     @Override
     public List<Rental> getRentalByName(String name) {
-        return entityManager.createQuery("select r from Rental r where r.name= :name", Rental.class)
-                .setParameter("name", name).getResultList();
+        return entityManager.createQuery("select r from Rental r where r.name like :name", Rental.class)
+                .setParameter("name", "%" + name + "%").getResultList();
     }
 
     @Transactional
