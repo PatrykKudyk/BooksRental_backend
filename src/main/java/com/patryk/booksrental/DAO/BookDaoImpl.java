@@ -49,4 +49,10 @@ public class BookDaoImpl implements BookDao {
         Book bookEntity = entityManager.find(Book.class, id);
         bookEntity.set_loan(is_loan);
     }
+
+    @Transactional
+    @Override
+    public void deleteBook(long id) {
+        entityManager.remove(getBookById(id));
+    }
 }

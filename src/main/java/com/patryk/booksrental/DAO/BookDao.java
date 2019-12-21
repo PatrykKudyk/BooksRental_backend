@@ -11,4 +11,5 @@ public interface BookDao {
     Book getBookById(long id);
     void addBook(Book book);
     void updateBookLoan(long id, boolean is_loan);
+    void deleteBook(long id);
 }

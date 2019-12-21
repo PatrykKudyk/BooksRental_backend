@@ -50,6 +50,12 @@ public class BookController {
         return new ResponseEntity<>("Pomyślnie zaktualizowano status wypożyczenia!", HttpStatus.OK);
     }
 
+    @RequestMapping(value = "/delete", method = RequestMethod.DELETE)
+    public ResponseEntity<String> deleteBook(@RequestParam long id){
+        bookService.deleteBook(id);
+        return new ResponseEntity<>("Pomyślnie usunięto książkę", HttpStatus.OK);
+    }
+
     @Autowired
     public void setBookService(BookService bookService){this.bookService = bookService;}
 

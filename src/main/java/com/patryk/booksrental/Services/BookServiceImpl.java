@@ -41,6 +41,11 @@ public class BookServiceImpl implements BookService {
     }
 
     @Override
+    public void deleteBook(long id) {
+        bookDao.deleteBook(id);
+    }
+
+    @Override
     public void updateBookLoan(long id, boolean is_loan) {
         bookDao.updateBookLoan(id, is_loan);
     }
