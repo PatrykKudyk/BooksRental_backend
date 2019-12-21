@@ -31,4 +31,11 @@ public class LocationDaoImpl implements LocationDao {
         Location locationEntity = entityManager.find(Location.class, id);
         locationEntity.set_used(is_used);
     }
+
+    @Transactional
+    @Override
+    public void updateLocation(long id, Location location) {
+        Location locationEntity = entityManager.find(Location.class, id);
+        locationEntity = location;
+    }
 }

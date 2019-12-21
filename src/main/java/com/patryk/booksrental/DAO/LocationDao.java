@@ -8,4 +8,5 @@ public interface LocationDao {
     List<Location> getList();
     Location getListById(long id);
     void updateUsage(long id, boolean is_used);
+    void updateLocation(long id, Location location);
 }

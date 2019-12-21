@@ -37,6 +37,13 @@ public class LocationController {
         return new ResponseEntity<>("Zmiana dokonana pomyślnie!", HttpStatus.OK);
     }
 
+    @RequestMapping(value = "/updateLocation", method = RequestMethod.PUT)
+    public ResponseEntity<String> updateLocation(@RequestParam(required = true)long id,
+                                                 @RequestBody(required = true)Location location){
+        locationService.updateLocation(id, location);
+        return new ResponseEntity<>("Zmiana dokonana pomyślnie!", HttpStatus.OK);
+    }
+
 
     @Autowired
     public void setLocationResourceAssembler(LocationResourceAssembler locationResourceAssembler){this.locationResourceAssembler = locationResourceAssembler;}

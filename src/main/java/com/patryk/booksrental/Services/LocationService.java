@@ -8,4 +8,5 @@ public interface LocationService {
     List<Location> getList();
     Location getLocationById(long id);
     void updateUsage(long id, boolean is_used);
+    void updateLocation(long id, Location location);
 }

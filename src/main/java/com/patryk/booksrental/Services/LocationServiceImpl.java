@@ -27,6 +27,19 @@ public class LocationServiceImpl implements LocationService {
         locationDao.updateUsage(id, is_used);
     }
 
+    @Override
+    public void updateLocation(long id, Location location) {
+        Location locationEntity = locationDao.getListById(id);
+        locationEntity.setBuilding_number(location.getBuilding_number());
+        locationEntity.set_used(location.is_used());
+        locationEntity.setCity(location.getCity());
+        locationEntity.setOffice_number(location.getOffice_number());
+        locationEntity.setState(location.getState());
+        locationEntity.setStreet(location.getStreet());
+        locationEntity.setZip_code(location.getZip_code());
+        locationDao.updateLocation(id, locationEntity);
+    }
+
     @Autowired
     public void setLocationDao(LocationDao locationDao){this.locationDao = locationDao;}
 }
