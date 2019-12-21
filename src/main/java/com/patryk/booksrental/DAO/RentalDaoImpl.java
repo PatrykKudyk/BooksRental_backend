@@ -1,5 +1,6 @@
 package com.patryk.booksrental.DAO;
 
+import com.patryk.booksrental.Models.Location;
 import com.patryk.booksrental.Models.Rental;
 import org.springframework.stereotype.Repository;
 
@@ -35,5 +36,12 @@ public class RentalDaoImpl implements RentalDao {
     @Override
     public void addRental(Rental rental) {
         entityManager.persist(rental);
+    }
+
+    @Transactional
+    @Override
+    public void updateRentalLocation(long id, Location location) {
+        Rental rentalEntity = entityManager.find(Rental.class, id);
+        rentalEntity.setLocation_id(location);
     }
 }

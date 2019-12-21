@@ -41,6 +41,13 @@ public class RentalController {
         return new ResponseEntity<>("Pomyślnie dodano wypożyczalnię!", HttpStatus.OK);
     }
 
+    @RequestMapping(value = "/updateLocation", method = RequestMethod.PUT)
+    public ResponseEntity<String> updateLocation(@RequestParam(required = true)long id,
+                                                 @RequestParam(required = true)long location_id){
+        rentalService.updateLocation(id, location_id);
+        return new ResponseEntity<>("Pomyślnie zaktualizowano lokację!", HttpStatus.OK);
+    }
+
     @Autowired
     public void setRentalService(RentalService rentalService){this.rentalService = rentalService;}
 
