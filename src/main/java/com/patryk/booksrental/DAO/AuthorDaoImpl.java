@@ -25,6 +25,12 @@ public class AuthorDaoImpl implements AuthorDao {
                 .setParameter("authorId", id).getSingleResult();
     }
 
+    @Override
+    public List<Author> getAuthorsByName(String name) {
+        return entityManager.createQuery("select a from Author a where a.name like :name", Author.class)
+                .setParameter("name", "%" + name + "%").getResultList();
+    }
+
     @Transactional
     @Override
     public void addAuthor(Author author) {

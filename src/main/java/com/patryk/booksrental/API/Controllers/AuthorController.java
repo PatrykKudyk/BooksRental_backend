@@ -30,6 +30,12 @@ public class AuthorController {
         return authorResourceAssembler.buildResources(authorList);
     }
 
+    @RequestMapping(value = "/name", produces = "application/json", method = RequestMethod.GET)
+    public List<AuthorResource> getAuthorsByName(@RequestParam(required = true) String name){
+        List<Author> authorList = authorService.getAuthorsByName(name);
+        return authorResourceAssembler.buildResources(authorList);
+    }
+
     @RequestMapping(value = "/add", method = RequestMethod.POST)
     public ResponseEntity<String> addAuthor(@RequestBody(required = true) Author author){
         authorService.addAuthor(author);
