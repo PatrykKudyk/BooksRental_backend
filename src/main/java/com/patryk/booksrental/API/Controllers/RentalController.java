@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+@RestController
 @RequestMapping("/rental")
 public class RentalController {
     private RentalService rentalService;
@@ -39,7 +40,7 @@ public class RentalController {
         rentalService.addRental(rental);
         return new ResponseEntity<>("Pomyślnie dodano wypożyczalnię!", HttpStatus.OK);
     }
-    
+
     @Autowired
     public void setRentalService(RentalService rentalService){this.rentalService = rentalService;}
 
