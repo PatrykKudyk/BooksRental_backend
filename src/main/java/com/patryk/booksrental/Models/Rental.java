@@ -21,6 +21,9 @@ public class Rental {
     @Id
     private long id;
 
+    @Column(name = "name")
+    private String name;
+    
     @JsonIgnore
     @OneToMany(mappedBy = "rental_id")
     private List<Book> books;
