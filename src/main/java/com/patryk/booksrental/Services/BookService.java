@@ -11,5 +11,6 @@ public interface BookService {
     Book getBookById(long id);
     void addBook(Book book);
     void updateBookLoan(long id, boolean is_loan);
+    void updateBookRental(long id, long rental_id);
     void deleteBook(long id);
 }

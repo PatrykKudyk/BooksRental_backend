@@ -50,6 +50,13 @@ public class BookController {
         return new ResponseEntity<>("Pomyślnie zaktualizowano status wypożyczenia!", HttpStatus.OK);
     }
 
+    @RequestMapping(value = "/updateRental", method = RequestMethod.PUT)
+    public ResponseEntity<String> updateRental(@RequestParam(required = true)long id,
+                                               @RequestParam(required = true)long rental_id){
+        bookService.updateBookRental(id, rental_id);
+        return new ResponseEntity<>("Pomyślnie zaktualizowano wypożyczalnię!", HttpStatus.OK);
+    }
+
     @RequestMapping(value = "/delete", method = RequestMethod.DELETE)
     public ResponseEntity<String> deleteBook(@RequestParam long id){
         bookService.deleteBook(id);
