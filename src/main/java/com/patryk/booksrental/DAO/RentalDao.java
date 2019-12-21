@@ -7,5 +7,6 @@ import java.util.List;
 public interface RentalDao {
     List<Rental> getList();
     Rental getRentalById(long id);
-    Rental getRentalByName()
+    List<Rental> getRentalByName(String name);
+    void addRental(Rental rental);
 }
