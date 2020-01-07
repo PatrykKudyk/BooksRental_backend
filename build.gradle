@@ -6,7 +6,7 @@ plugins {
 
 group = 'com.patryk.booksrental'
 version = '0.0.1-SNAPSHOT'
-sourceCompatibility = '13'
+sourceCompatibility = '11'
 
 configurations {
     compileOnly {
@@ -31,4 +31,17 @@ dependencies {
 
 test {
     useJUnitPlatform()
+}
+
+bootJar {
+//    mainClassName = 'booksRental.App'
+    mainClassName = 'com.patryk.booksrental.DemoApplication'
+}
+
+jar{
+    manifest {
+        attributes(
+                'Main-Class': 'com.patryk.booksrental.DemoApplication'
+        )
+    }
 }
