@@ -21,9 +21,9 @@ public class BookResourceAssembler {
                     .pages(book.getPages())
                     .is_thick_cover(book.is_thick_cover())
                     .is_loan(book.is_loan())
-                    .publishing_house(book.getPublishing_house_id())
-                    .rental(book.getRental_id())
-                    .author(book.getAuthor_id())
+                    .publishing_house_id(book.getPublishing_house_id())
+                    .rental_id(book.getRental_id())
+                    .author_id(book.getAuthor_id())
                     .build();
             return bookResource;
         }).collect(Collectors.toList());
@@ -38,9 +38,9 @@ public class BookResourceAssembler {
                 .pages(book.getPages())
                 .is_thick_cover(book.is_thick_cover())
                 .is_loan(book.is_loan())
-                .publishing_house(book.getPublishing_house_id())
-                .rental(book.getRental_id())
-                .author(book.getAuthor_id())
+                .publishing_house_id(book.getPublishing_house_id())
+                .rental_id(book.getRental_id())
+                .author_id(book.getAuthor_id())
                 .build();
         return bookResource;
     }
@@ -52,9 +52,9 @@ public class BookResourceAssembler {
                 .pages(bookResource.getPages())
                 .is_loan(bookResource.is_loan())
                 .is_thick_cover(bookResource.is_thick_cover())
-                .publishing_house_id(bookResource.getPublishing_house())
-                .rental_id(bookResource.getRental())
-                .author_id(bookResource.getAuthor())
+                .publishing_house_id(bookResource.getPublishing_house_id())
+                .rental_id(bookResource.getRental_id())
+                .author_id(bookResource.getAuthor_id())
                 .build();
         return book;
     }

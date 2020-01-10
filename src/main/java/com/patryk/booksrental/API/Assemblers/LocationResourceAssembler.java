@@ -20,8 +20,8 @@ public class LocationResourceAssembler {
                     .building_number(location.getBuilding_number())
                     .office_number(location.getOffice_number())
                     .is_used(location.is_used())
-                    .publishingHouse(location.getPublishing_house())
-                    .rental(location.getRental())
+                    .publishing_house_id(location.getPublishing_house())
+                    .rental_id(location.getRental())
                     .build();
             return locationResource;
         }).collect(Collectors.toList());
@@ -38,8 +38,8 @@ public class LocationResourceAssembler {
                 .building_number(location.getBuilding_number())
                 .office_number(location.getOffice_number())
                 .is_used(location.is_used())
-                .publishingHouse(location.getPublishing_house())
-                .rental(location.getRental())
+                .publishing_house_id(location.getPublishing_house())
+                .rental_id(location.getRental())
                 .build();
         return locationResource;
     }

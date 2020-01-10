@@ -26,9 +26,9 @@ public class BookResource {
     @JsonProperty
     private boolean is_loan;
     @JsonProperty
-    private PublishingHouse publishing_house;
+    private PublishingHouse publishing_house_id;
     @JsonProperty
-    private Rental rental;
+    private Rental rental_id;
     @JsonProperty
-    private Author author;
+    private Author author_id;
 }

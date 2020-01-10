@@ -19,7 +19,7 @@ public class RentalResource {
     @JsonProperty
     private String name;
     @JsonProperty
-    private Location location;
+    private Location location_id;
     @JsonProperty
     private List<Book> books;
 }

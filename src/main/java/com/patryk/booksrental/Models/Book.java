@@ -48,8 +48,8 @@ public class Book {
     @JoinColumn(name = "publishing_house_id", nullable = false)
     private PublishingHouse publishing_house_id;
 
-    @JsonIgnore
-    @JsonIgnoreProperties
+//    @JsonIgnore
+//    @JsonIgnoreProperties
     @ManyToOne
     @JoinColumn(name = "author_id", nullable = false)
     private Author author_id;

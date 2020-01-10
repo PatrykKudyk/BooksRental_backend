@@ -30,7 +30,7 @@ public class LocationResource {
     @JsonProperty
     private boolean is_used;
     @JsonProperty
-    private PublishingHouse publishingHouse;
+    private PublishingHouse publishing_house_id;
     @JsonProperty
-    private Rental rental;
+    private Rental rental_id;
 }

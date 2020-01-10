@@ -17,7 +17,7 @@ public class RentalResourceAssembler {
             RentalResource rentalResource = RentalResource.builder()
                     .id(rental.getId())
                     .name(rental.getName())
-                    .location(rental.getLocation_id())
+                    .location_id(rental.getLocation_id())
                     .build();
             return rentalResource;
         }).collect(Collectors.toList());
@@ -29,7 +29,7 @@ public class RentalResourceAssembler {
         RentalResource rentalResource = RentalResource.builder()
                 .id(rental.getId())
                 .name(rental.getName())
-                .location(rental.getLocation_id())
+                .location_id(rental.getLocation_id())
                 .books(rental.getBooks())
                 .build();
         return rentalResource;

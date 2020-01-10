@@ -15,7 +15,7 @@ public class PublishingHouseResourceAssembler {
             PublishingHouseResource publishingHouseResource = PublishingHouseResource.builder()
                     .id(publishingHouse.getId())
                     .name(publishingHouse.getName())
-                    .location(publishingHouse.getLocation_id())
+                    .location_id(publishingHouse.getLocation_id())
                     .build();
             return publishingHouseResource;
         }).collect(Collectors.toList());
@@ -26,7 +26,7 @@ public class PublishingHouseResourceAssembler {
         PublishingHouseResource publishingHouseResource = PublishingHouseResource.builder()
                 .id(publishingHouse.getId())
                 .name(publishingHouse.getName())
-                .location(publishingHouse.getLocation_id())
+                .location_id(publishingHouse.getLocation_id())
                 .books(publishingHouse.getBooks())
                 .build();
         return publishingHouseResource;
