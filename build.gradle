@@ -5,7 +5,7 @@ plugins {
 }
 
 group = 'com.patryk.booksrental'
-version = '0.1.3.1.-obsluga_opisu_ksiazki_api'
+version = '0.1.3.2.-pomniejsze_zmiany'
 sourceCompatibility = '8'
 
 configurations {
@@ -27,6 +27,11 @@ dependencies {
     runtimeOnly 'mysql:mysql-connector-java'
     annotationProcessor 'org.projectlombok:lombok'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
+
+    ///autentyfikacja
+    implementation 'org.springframework.boot:spring-boot-starter-security'
+    implementation 'org.springframework.security:spring-security-test'
+//    implementation('io.jsonwebtoken:jjwt:0.9')
 }
 
 test {
