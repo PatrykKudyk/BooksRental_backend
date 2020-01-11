@@ -34,9 +34,10 @@ public class Book {
     private int pages;
     @Column(name = "is_thick_cover")
     private boolean is_thick_cover;
-
     @Column(name = "is_loan")
     private boolean is_loan;
+    @Column(name = "description")
+    private String description;
 
     @ManyToOne
     @JoinColumn(name = "rental_id", nullable = false)

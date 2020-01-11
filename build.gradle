@@ -5,7 +5,7 @@ plugins {
 }
 
 group = 'com.patryk.booksrental'
-version = '0.0.1-SNAPSHOT'
+version = '0.1.3.1.-obsluga_opisu_ksiazki_api'
 sourceCompatibility = '8'
 
 configurations {
@@ -31,17 +31,4 @@ dependencies {
 
 test {
     useJUnitPlatform()
-}
-
-bootJar {
-//    mainClassName = 'booksRental.App'
-    mainClassName = 'com.patryk.booksrental.DemoApplication'
-}
-
-jar{
-    manifest {
-        attributes(
-                'Main-Class': 'com.patryk.booksrental.DemoApplication'
-        )
-    }
 }
