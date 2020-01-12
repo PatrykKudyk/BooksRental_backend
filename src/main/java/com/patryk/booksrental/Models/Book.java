@@ -55,6 +55,10 @@ public class Book {
     @JoinColumn(name = "author_id", nullable = false)
     private Author author_id;
 
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    private User user_id;
+
 //    Book(String title, int release_year, int pages, boolean is_thick_cover, boolean is_loan, long rental_id,
 //         long publishing_house_id, long author_id){
 //        this.title = title;

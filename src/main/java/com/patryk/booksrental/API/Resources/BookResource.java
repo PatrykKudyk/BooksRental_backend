@@ -5,6 +5,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.patryk.booksrental.Models.Author;
 import com.patryk.booksrental.Models.PublishingHouse;
 import com.patryk.booksrental.Models.Rental;
+import com.patryk.booksrental.Models.User;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -33,4 +34,6 @@ public class BookResource {
     private Rental rental_id;
     @JsonProperty
     private Author author_id;
+    @JsonProperty
+    private User user_id;
 }

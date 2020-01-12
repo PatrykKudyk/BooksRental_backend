@@ -1,10 +1,7 @@
 package com.patryk.booksrental.API.Assemblers;
 
 import com.patryk.booksrental.API.Resources.BookResource;
-import com.patryk.booksrental.Models.Author;
-import com.patryk.booksrental.Models.Book;
-import com.patryk.booksrental.Models.PublishingHouse;
-import com.patryk.booksrental.Models.Rental;
+import com.patryk.booksrental.Models.*;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
@@ -43,6 +40,7 @@ public class BookResourceAssembler {
                 .publishing_house_id(book.getPublishing_house_id())
                 .rental_id(book.getRental_id())
                 .author_id(book.getAuthor_id())
+                .user_id(book.getUser_id())
                 .build();
         return bookResource;
     }
@@ -58,21 +56,42 @@ public class BookResourceAssembler {
                 .publishing_house_id(bookResource.getPublishing_house_id())
                 .rental_id(bookResource.getRental_id())
                 .author_id(bookResource.getAuthor_id())
+                .user_id(bookResource.getUser_id())
                 .build();
         return book;
     }
 
-    public Book buildBookToAdd(Book book, long author_id, long publishing_house_id, long rental_id){
-        Book createdBook = Book.builder()
-                .title(book.getTitle())
-                .pages(book.getPages())
-                .release_year(book.getRelease_year())
-                .is_loan(book.is_loan())
-                .is_thick_cover(book.is_thick_cover())
-                .author_id(new Author(author_id))
-                .publishing_house_id(new PublishingHouse(publishing_house_id))
-                .rental_id(new Rental(rental_id))
-                .build();
+    public Book buildBookToAdd(Book book, long author_id, long publishing_house_id, long rental_id, Long user_id){
+        Book createdBook;
+
+        if(user_id != null){
+            createdBook = Book.builder()
+                    .title(book.getTitle())
+                    .pages(book.getPages())
+                    .release_year(book.getRelease_year())
+                    .is_loan(book.is_loan())
+                    .is_thick_cover(book.is_thick_cover())
+                    .author_id(new Author(author_id))
+                    .publishing_house_id(new PublishingHouse(publishing_house_id))
+                    .rental_id(new Rental(rental_id))
+                    .description(book.getDescription())
+                    .user_id(new User(user_id))
+                    .build();
+
+        }else{
+            createdBook = Book.builder()
+                    .title(book.getTitle())
+                    .pages(book.getPages())
+                    .release_year(book.getRelease_year())
+                    .is_loan(book.is_loan())
+                    .is_thick_cover(book.is_thick_cover())
+                    .author_id(new Author(author_id))
+                    .publishing_house_id(new PublishingHouse(publishing_house_id))
+                    .rental_id(new Rental(rental_id))
+                    .description(book.getDescription())
+                    .build();
+        }
+
         return createdBook;
     }
 }
