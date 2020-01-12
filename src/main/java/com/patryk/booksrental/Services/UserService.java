@@ -9,6 +9,7 @@ public interface UserService {
     List<User> getList();
     User getUsetById(long id);
     User getUserByLogin(String login);
+    User getUserByEmail(String email);
     void addUser(User user);
     void updatePassword(long id, String password);
     void updateEmail(long id, String email);
