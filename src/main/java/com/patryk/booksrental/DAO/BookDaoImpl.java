@@ -2,6 +2,7 @@ package com.patryk.booksrental.DAO;
 
 import com.patryk.booksrental.Models.Book;
 import com.patryk.booksrental.Models.Rental;
+import com.patryk.booksrental.Models.User;
 import org.springframework.stereotype.Repository;
 
 import javax.persistence.EntityManager;
@@ -49,6 +50,13 @@ public class BookDaoImpl implements BookDao {
     public void updateBookLoan(long id, boolean is_loan) {
         Book bookEntity = entityManager.find(Book.class, id);
         bookEntity.set_loan(is_loan);
+    }
+
+    @Transactional
+    @Override
+    public void updateBookUser(long id, User user) {
+        Book bookEntity = entityManager.find(Book.class, id);
+        bookEntity.setUser_id(user);
     }
 
     @Transactional
