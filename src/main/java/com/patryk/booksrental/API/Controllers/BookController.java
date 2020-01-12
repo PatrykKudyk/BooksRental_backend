@@ -5,6 +5,7 @@ import com.patryk.booksrental.API.Assemblers.BookResourceAssembler;
 import com.patryk.booksrental.API.Resources.BookResource;
 import com.patryk.booksrental.Models.Book;
 import com.patryk.booksrental.Services.BookService;
+import org.apache.coyote.Response;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -49,6 +50,18 @@ public class BookController {
                                              @RequestParam(required = true)boolean is_loan){
         bookService.updateBookLoan(id, is_loan);
         return new ResponseEntity<>("Pomyślnie zaktualizowano status wypożyczenia!", HttpStatus.OK);
+    }
+
+    @RequestMapping(value = "/updateUser", method = RequestMethod.PUT)
+    public ResponseEntity<String> updateUser(@RequestParam long id,
+                                             @RequestParam(required = false) Long user_id){
+        if(user_id != null){
+            bookService.updateBookUser(id, user_id);
+            return new ResponseEntity<>("Pomyślnie zaktualizowano wypożyczającego!", HttpStatus.OK);
+        }else{
+            bookService.removeUser(id);
+            return new ResponseEntity<>("Pomyślnie usunięto wypożyczającego!", HttpStatus.OK);
+        }
     }
 
     @RequestMapping(value = "/updateRental", method = RequestMethod.PUT)

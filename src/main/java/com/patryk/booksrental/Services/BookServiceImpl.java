@@ -4,6 +4,7 @@ package com.patryk.booksrental.Services;
 import com.patryk.booksrental.DAO.BookDao;
 import com.patryk.booksrental.Models.Book;
 import com.patryk.booksrental.Models.Rental;
+import com.patryk.booksrental.Models.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -15,6 +16,7 @@ public class BookServiceImpl implements BookService {
 
     private BookDao bookDao;
     private RentalService rentalService;
+    private UserService userService;
 
     @Override
     public List<Book> getList() {
@@ -53,6 +55,17 @@ public class BookServiceImpl implements BookService {
     }
 
     @Override
+    public void updateBookUser(long id, long user_id) {
+        User user = userService.getUserById(user_id);
+        bookDao.updateBookUser(id, user);
+    }
+
+    @Override
+    public void removeUser(long id) {
+        bookDao.removeUser(id);
+    }
+
+    @Override
     public void updateBookRental(long id, long rental_id) {
         Rental rental = rentalService.getRentalById(rental_id);
         bookDao.updateRental(id, rental);
@@ -60,6 +73,9 @@ public class BookServiceImpl implements BookService {
 
     @Autowired
     public void setRentalService(RentalService rentalService){this.rentalService = rentalService;}
+
+    @Autowired
+    public void serUserService(UserService userService){this.userService = userService;}
 
     @Autowired
     public void setBookDao(BookDao bookDao){this.bookDao = bookDao;}

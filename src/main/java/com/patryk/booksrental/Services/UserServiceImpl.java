@@ -18,8 +18,8 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public User getUsetById(long id) {
-        return userDao.getUsetById(id);
+    public User getUserById(long id) {
+        return userDao.getUserById(id);
     }
 
     @Override

@@ -61,6 +61,13 @@ public class BookDaoImpl implements BookDao {
 
     @Transactional
     @Override
+    public void removeUser(long id) {
+        Book bookEntity = entityManager.find(Book.class, id);
+        bookEntity.setUser_id(null);
+    }
+
+    @Transactional
+    @Override
     public void updateRental(long id, Rental rental){
         Book bookEntity = entityManager.find(Book.class, id);
         bookEntity.setRental_id(rental);

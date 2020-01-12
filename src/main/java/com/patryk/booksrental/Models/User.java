@@ -35,7 +35,7 @@ public class User {
     @Column(name = "password")
     private String password;
 
-    @Enumerated(value = EnumType.ORDINAL)
+    @Enumerated(EnumType.STRING)
     @Column(name = "user_type")
     private UserType user_type;
 

@@ -14,6 +14,7 @@ public interface BookDao {
     void addBook(Book book);
     void updateBookLoan(long id, boolean is_loan);
     void updateBookUser(long id, User user);
+    void removeUser(long id);
     void updateRental(long id, Rental rental);
     void deleteBook(long id);
 }
