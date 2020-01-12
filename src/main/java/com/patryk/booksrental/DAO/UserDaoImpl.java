@@ -59,6 +59,7 @@ public class UserDaoImpl implements UserDao {
         userEntity.setPassword(password);
     }
 
+    @Transactional
     @Override
     public void updateUserType(long id, UserType userType) {
         User userEntity = entityManager.find(User.class, id);

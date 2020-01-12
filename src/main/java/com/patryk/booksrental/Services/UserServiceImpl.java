@@ -7,6 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 @Service
 public class UserServiceImpl implements UserService {
@@ -23,13 +25,23 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public User getUserByLogin(String login) {
-        return userDao.getUserByLogin(login);
+    public List<User> getUserByLogin(String login) {
+        List<User> userList = userDao.getList();
+        Stream<User> userStream = userList.stream();
+        if(login != null){
+            userStream = userStream.filter(user -> user.getLogin().equals(login));
+        }
+        return userStream.collect(Collectors.toList());
     }
 
     @Override
-    public User getUserByEmail(String email) {
-        return userDao.getUserByEmail(email);
+    public List<User> getUserByEmail(String email) {
+        List<User> userList = userDao.getList();
+        Stream<User> userStream = userList.stream();
+        if(email != null){
+            userStream = userStream.filter(user -> user.getEmail().equals(email));
+        }
+        return userStream.collect(Collectors.toList());
     }
 
     @Override
